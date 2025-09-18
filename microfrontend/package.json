@@ -1,0 +1,31 @@
+{
+  "name": "web_canonicals_ru",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "./host",
+      "./auth",
+      "./components",
+      "./places",
+      "./profile"
+    ]
+  },
+  "scripts": {
+    "host-build": "cd ./host && npm run build",
+    "auth-build": "cd ./auth && npm run build",
+    "components-build": "cd ./components && npm run build",
+    "profile-build": "cd ./profile && npm run build",
+    "places-build": "cd ./places && npm run build",
+    "build": "concurrently \"npm run host-build\" \"npm run components-build\" \"npm run auth-build\" \"npm run profile-build\" \"npm run places-build\"",
+    "host-start": "cd ./host && npm run start",
+    "components-start": "cd ./components && npm run start",
+    "auth-start": "cd ./auth && npm run start",
+    "profile-start": "cd ./profile && npm run start",
+    "places-start": "cd ./places && npm run start",
+    "start": "concurrently \"npm run host-start\" \"npm run components-start\" \"npm run auth-start\" \"npm run profile-start\" \"npm run places-start\""
+  },
+  "devDependencies": {
+    "concurrently": "8.2.2"
+  }
+}
